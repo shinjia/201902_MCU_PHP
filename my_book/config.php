@@ -1,7 +1,7 @@
 <?php
 
 define('DB_SERVERIP', 'localhost');
-define('DB_USERNAME', 'root');
+define('DB_bookname', 'root');
 define('DB_PASSWORD', '');
 define('DB_DATABASE', 'class');
 
@@ -15,10 +15,11 @@ define('ERROR_QUERY',     'Error in SQL Query');  // 無法執行資料庫查詢
 
 function db_open()
 {
-   $link = mysqli_connect(DB_SERVERIP, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die(ERROR_CONNECT);
+   $link = mysqli_connect(DB_SERVERIP, DB_bookname, DB_PASSWORD, DB_DATABASE) or die(ERROR_CONNECT);
    if(defined('SET_CHARACTER')) mysqli_query($link, SET_CHARACTER) or die(ERROR_CHARACTER);
    return $link;
 }
+
 
 function db_close($link)
 {

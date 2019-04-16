@@ -3,13 +3,18 @@ include 'config.php';
 
 $table_name = 'book'; // 指定資料表名稱
 
+
 $sqlstr_install_table = '
 CREATE TABLE book (
-  uid int NOT NULL auto_increment,
+  uid int(11) NOT NULL auto_increment,
   bookcode varchar(255) NULL,
   bookname varchar(255) NULL,
-  price int default NULL,
-  publish date default NULL,
+  descr    varchar(255) NULL,
+  author   varchar(255)  NULL,
+  publish  varchar(255)  NULL,
+  pub_date date default NULL,
+  price    int default NULL,
+  picture  varchar(255) NULL,
   remark   varchar(255) NULL,
   PRIMARY KEY  (uid)
   )
@@ -71,8 +76,8 @@ $html = <<< HEREDOC
 <p><a href="index.php">回首頁</a></p>
 <h2>資料庫安裝程式</h2>
 <ul>
-   <li><a href="install.php?op=CREATE_TABLE">安裝資料表 (person)</a></li>
-   <li><a href="install.php?op=DROP_TABLE">移除資料表 (person)</a></li>
+   <li><a href="install.php?op=CREATE_TABLE">安裝資料表 (book)</a></li>
+   <li><a href="install.php?op=DROP_TABLE">移除資料表 (book)</a></li>
    <li><a href="install.php?op=CREATE_DATABASE">安裝資料庫 (class)</a></li>
 </ul>
 <hr />
